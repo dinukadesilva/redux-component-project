@@ -5,31 +5,29 @@
     <title>Hello React!</title>
     <script src="../../bower_components/react/react.js"></script>
     <script src="../../bower_components/react/react-dom.js"></script>
-    <script src="../../node_modules/redux/dist/redux.js"></script>
-    <script src="../../node_modules/react-redux/dist/react-redux.js"></script>
     <script src="https://unpkg.com/babel-core@5.8.38/browser.js"></script>
     <script src="../../dist/app.js"></script>
 </head>
 <body>
 <div id="example"></div>
 <script type="text/babel">
-    var student1 = new window.Student(function (state) {
-        return {
-            name: state.harin.name
-        };
-    });
-    var student2 = new window.Student(function (state) {
-        return {
-            name: state.dinuka.name
-        };
-    });
+    var studentList = ["Ravindu", "Thuvaraka", "Senuri", "Harin"];
     ReactDOM.render(
-            <ReactRedux.Provider store = {window.store}>
-                <div>
-                    {student1}
-                    {student2}
-                </div>
-            </ReactRedux.Provider>,
+            <div>
+                <h2>Student Component</h2>
+                <window.Student name="TTT">
+                </window.Student>,
+
+                <h2>Sub Component of Student Component</h2>
+                <window.IITStudent name="TTT">
+                </window.IITStudent>
+
+                <h2>Student List</h2>
+                {studentList.map(function (studentName, index) {
+                    return (<window.Student key={index} name={studentName}>
+                    </window.Student>)
+                })}
+            </div>,
             document.getElementById('example')
     );
 </script>

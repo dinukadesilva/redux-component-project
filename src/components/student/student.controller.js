@@ -1,14 +1,12 @@
-//mapDispatchToProps
-const StudentController = (dispatch) => {
-    return {
-        onEditClick: (props) => {
-            console.log("onEditClick----");
+var React = require("react");
 
-            dispatch({
-                type: "UPDATE_STUDENT"
-            });
-            //props.name = "Editing.....";
-        }
+class StudentController extends React.Component {
+    onEditClick() {
+        console.log("onEditClick----");
+    }
+
+    getName() {
+        return this.props.name;
     }
 }
 
