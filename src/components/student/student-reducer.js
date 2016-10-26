@@ -1,8 +1,21 @@
-module.exports = function (state = {}, action) {
+var defaultState = {
+    dinuka: {
+        name: "Dinuka"
+    },
+    senuri: {
+        name: "Senuri"
+    },
+    harin: {
+        name: "Harin"
+    }
+};
+
+module.exports = function (state = defaultState, action) {
     switch (action.type) {
         case 'UPDATE_STUDENT':
-            return Object.assign(action.state, state);
+            state.dinuka.name="Dinuka De Silva";
+            return state;
         default:
-            return state
+            return state;
     }
 };

@@ -1,13 +1,20 @@
+var React = require("react");
+var StudentController = require("./student.controller");
+var StudentView = require("./student.view");
 
+module.exports = function (getObjectState) {
+    var connect = require("react-redux").connect;
 
-class Student extends React.Component {
-    render () {
-        return (
-            <div>
-                Student : <b>{this.props.name}</b>.
-            </div>
-        );
-    }
-}
+    const mapStateToProps = (state) => {
+        return {
+            name: state.dinuka.name
+        };
+    };
 
-module.exports = Student;
+    const Student = connect(
+        mapStateToProps,
+        StudentController
+    )(StudentView);
+
+    return (<Student />);
+};
